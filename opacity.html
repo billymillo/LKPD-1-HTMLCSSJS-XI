@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .persegi {
+            width: 200px;
+            height: 200px;
+        }
+        .lingkaran {
+            border-radius: 50%;
+        }
+        .segitiga {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLCIX-lsae9yXXVJCGpXAuyPhhc7Hf7s2jw&s" alt="" id="imgpantai" class="persegi" style="display: none;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bbDBeCvBp-67mI1oMgh0W1N7Hkg578DNEw&s" alt="" id="imghutan" class="persegi" style="display: none;">
+        <img src="https://png.pngtree.com/thumb_back/fh260/background/20210907/pngtree-photograph-of-rice-field-growth-in-rice-field-image_818315.jpg" alt="" id="imglangit" class="persegi" style="display: none;">
+    </div>
+    <label for="">Ubah Gambar :</label>
+    <select id="gambar" name="image" class="border" onclick="changelabel(this)">
+        <option value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLCIX-lsae9yXXVJCGpXAuyPhhc7Hf7s2jw&s">Gambar Pemandangan</option>
+        <option value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bbDBeCvBp-67mI1oMgh0W1N7Hkg578DNEw&s">Gambar Langit</option>
+        <option value="https://png.pngtree.com/thumb_back/fh260/background/20210907/pngtree-photograph-of-rice-field-growth-in-rice-field-image_818315.jpg">Gambar Sawah</option>
+    </select>
+
+    <select id="opacity" name="opacity">
+        <option value="1" id="satu" class="satu">Opacity 1</option>
+        <option value="0.5" id="lima" class="lima">Opacity 0.5</option>
+        <option value="0.2" id="dua" class="dua">Opacity 0.2</option>
+    </select>
+    
+    <input type="submit" value="kirim" onclick="changeOpacity()"></input>
+    
+    <script>
+        function changeOpacity() {
+            var gambar = document.getElementById('gambar');
+            var opacity = document.getElementById('opacity');
+            var image = document.getElementById('image');
+    
+            var selectedImage = gambar.value;
+            var selectedOpacity = opacity.value;
+    
+            image.src = image;
+            image.select.style.opacity = Opacity;
+        }
+    </script>
+</body>
+</html>

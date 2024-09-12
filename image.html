@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .persegi {
+            width: 200px;
+            height: 200px;
+        }
+        .lingkaran {
+            border-radius: 50%;
+        }
+        .segitiga {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLCIX-lsae9yXXVJCGpXAuyPhhc7Hf7s2jw&s" alt="" id="imgpantai" class="persegi" style="display: none;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bbDBeCvBp-67mI1oMgh0W1N7Hkg578DNEw&s" alt="" id="imghutan" class="persegi" style="display: none;">
+        <img src="https://png.pngtree.com/thumb_back/fh260/background/20210907/pngtree-photograph-of-rice-field-growth-in-rice-field-image_818315.jpg" alt="" id="imglangit" class="persegi" style="display: none;">
+    </div>
+    <label for="">Ubah Gambar :</label>
+    <select id="gambar" name="image" class="border" onchange="changelabel(this)">
+        <option value="pantai" class="persegi">Gambar Pemandangan</option>
+        <option value="hutan" class="persegi">Gambar Langit</option>
+        <option value="langit" class="persegi">Gambar Sawah</option>
+    </select>
+    <select id="bentuk" name="bentuk" onchange="changelabel(this)">
+        <option value="persegi" class="persegi">Bentuk Persegi</option>
+        <option value="bulat" class="bulat">Bentuk Lingkaran</option>
+        <option value="segitiga" class="segitiga">Bentuk Segitiga</option>
+    </select>
+    <select id="warna" name="warna" onchange="changelabel(this)">
+        <option value="merah">Merah</option>
+        <option value="kuning">Kuning</option>
+        <option value="hijau">hijau</option>
+    </select>
+    <button>Kirim</button>
+</body>
+<script>
+    function changelabel(e) {
+        let el = document.getElementById('bentuk');
+        if(e.value == 'pantai') {
+            document.getElementById('imgpantai').style.display = 'block';
+            document.getElementById('imghutan').style.display = 'none';
+            document.getElementById('imglangit').style.display = 'none';
+        }else if (e.value == 'hutan') {
+            document.getElementById('imghutan').style.display = 'block';
+            document.getElementById('imgpantai').style.display = 'none';
+            document.getElementById('imglangit').style.display = 'none';
+        }else if (e.value == 'langit') {
+            document.getElementById('imghutan').style.display = 'none';
+            document.getElementById('imgpantai').style.display = 'none';
+            document.getElementById('imglangit').style.display = 'block';
+        }
+
+        if(e.value == 'bulat'){
+            document.querySelectorAll('img').forEach(function(image) {
+            image.style.borderRadius = '50%';
+        });
+        }else if(e.value == 'persegi'){
+            document.querySelectorAll('img').forEach(function(image) {
+            image.style.borderRadius = '0%';
+        });
+        }else if(e.value == 'segitiga'){ 
+            document.querySelectorAll('img').forEach(function(image) {
+            image.style.clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)";
+            image.style.backgroundSize = "cover";
+        });
+        }
+
+        if(e.value == 'merah'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid red';
+        });
+        }else if(e.value == 'kuning'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid yellow';
+        });
+        }else if(e.value == 'hijau'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid green';
+        });
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 650px;
+            width: 100%;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h3>Hitung Mundur</h3>
+            <h1 id="safeTimerDisplay">10</h1>
+            <button onclick="timer()">Mulai</button>
+            <button onclick="stop()">Berhenti</button>
+        </div>
+    </div>
+</body>
+<script>
+        var timerId;
+        function timer(){
+        var sec = 10;
+        timerId = setInterval(function(){
+        document.getElementById('safeTimerDisplay').innerHTML=sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timerId);
+            alert("WAKTU ABIS");
+            document.getElementById('safeTimerDisplay').innerHTML='WAKTU HABIS';
+            document.getElementById('safeTimerDisplay').style.color = 'RED';
+        } else {
+            document.getElementById('safeTimerDisplay').style.color = 'black';
+        }
+        }, 1000);
+}
+
+function stop(){
+    clearInterval(timerId);
+
+}
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mencari data tanggal</title>
+</head>
+<body>
+    <div>
+        <div>
+        <div>
+            <input type="date" name="date" id="date">
+            <button id="btn">Submit</button>
+        </div>
+        <div>
+            <h5 id="result"></h5>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+        const date = document.getElementById("date");
+        const result = document.getElementById("result");
+
+        btn.addEventListener("click", function () {
+        // mengecek apakah date nya ada value apa tidak
+        if (date.value) {
+        const dateObj = new Date(date.value);
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        // Mengubah menjadi local date
+        const formattedDate = dateObj.toLocaleDateString("id-ID", options);
+        
+        result.innerHTML =` Mencari data tanggal :
+        <span style="color: blue;">${formattedDate}</span>`;
+        } else {
+        result.innerHTML = "Tidak ada data...";
+        }
+    });
+    </script>
+</body>
+</html>

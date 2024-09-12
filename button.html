@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Toogle</title>
+    <style>
+        .switch{
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input{
+            opacity: 0px;
+            width: 0px;
+            height: 0px;
+        }
+        .slider{
+            position:absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+        }
+        .slider:before{
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        input:checked + .slider{
+            background-color: lightskyblue;
+        }
+        input:focus + .slider{
+            box-shadow: 0px 0px 1px lightskyblue;
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        /* Light Blue */
+        .sliders{
+            position:absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+        }
+        .sliders:before{
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 30px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        .sliders.round {
+            border-radius: 34px;
+        }
+
+        .sliders.round:before {
+            border-radius: 50%;
+        }
+        .light:checked + .sliders{
+            background-color: blue;
+        }
+        .light:focus + .sliders{
+            box-shadow: 0px 0px 1px blue;
+        }
+
+        .light:checked + .sliders:before {
+            transform: translateX(-26px);
+        }
+    </style>
+</head>
+<body>
+    <h2>Button Toogle</h2>
+    <label class="switch">
+        <input class="light" type="checkbox">
+        <span class="sliders round"></span>
+    </label>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+</body>
+</html>
